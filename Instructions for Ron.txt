@@ -1,0 +1,5 @@
+1. Open cmd (windows button, "cmd")
+2. Type c:
+3. Type cd C:\Users\hliangji\ChessCoach
+4. Type C:\Users\hliangji\.venv\Scripts\activate
+5. Type py chess_gui.py
