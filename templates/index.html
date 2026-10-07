@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess Coach · Your move</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <header><a class="brand" href="/">♞ <span>Chess Coach</span></a><span class="header-note">Learn from your own games</span></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">YOUR PERSONAL PRACTICE ROOM</p><h1>A better move starts here.</h1><p>Revisit a moment from your game. Think first, then compare.</p></div><div class="stat"><strong id="position-count">—</strong><span>positions to learn from</span></div></div>
+    <div class="workspace">
+      <section class="board-panel" aria-label="Chess position">
+        <div class="board-heading"><span id="turn">Your turn</span><button id="flip" class="quiet">⇅ Flip board</button></div>
+        <div id="board" role="group" aria-label="Interactive chessboard" aria-busy="true"></div>
+        <div class="board-footer"><span><i class="dot blue"></i>Opponent’s last move</span><span id="board-caption">Click a piece, then its destination.</span></div>
+      </section>
+      <aside>
+        <section class="card game-card"><label for="game">REVIEW A GAME</label><select id="game"></select><div class="game-details"><span id="date"></span><span id="result"></span></div><div class="progress"><span id="progress"></span><span id="move-number"></span></div><div class="progress-track"><div id="progress-bar"></div></div></section>
+        <section class="card lesson"><p class="eyebrow">PAUSE. LOOK. DECIDE.</p><h2 id="lesson-title">What would you play?</h2><p id="lesson-text">What changed after your opponent’s move? Look for checks, captures and threats.</p><form id="move-form"><label class="sr-only" for="move-input">Your move in chess notation</label><input id="move-input" placeholder="Or enter a move, e.g. Nd5" autocomplete="off" maxlength="12"><button type="submit" class="primary">Try move</button></form><div id="feedback" role="status" aria-live="polite"></div><div class="reveal-actions"><button id="played">Show my move</button><button id="best">Show best move</button></div><div id="comparison" hidden><div><span>Your move</span><strong id="played-value"></strong></div><div><span>Saved best move</span><strong id="best-value"></strong></div><p id="loss"></p></div><button id="continuation" class="wide">Explore engine continuation →</button><div id="line" hidden><p id="line-label"></p><div class="line-actions"><button id="line-back">← Back</button><button id="line-next">Next engine move →</button></div><p class="small">A fresh engine line may differ from the saved recommendation.</p></div><button id="reset" class="quiet wide">↺ Reset position</button></section>
+        <div class="navigation"><button id="previous">← Previous position</button><button id="next">Next position →</button></div>
+        <p class="data-note">Reviewing saved game analysis. Evaluation losses are estimates, not grades.</p>
+      </aside>
+    </div>
+    <p id="error" class="error" role="alert" hidden></p>
+    <footer><span>One position. One lesson. A stronger next game.</span><span id="dataset-note"></span></footer>
+  </main>
+</body>
+</html>
